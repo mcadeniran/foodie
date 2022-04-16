@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/controllers/popular_product_controller.dart';
+import 'package:foodie/controllers/recommended_product_controller.dart';
+import 'package:get/get.dart';
 
 import '../../widgets/small_text.dart';
 import '../../utils/colors.dart';
@@ -14,10 +17,16 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
+  Future<void> _loadResources() async {
+    await Get.find<PopularProductController>().getPopularProductList();
+    await Get.find<RecommendedProductController>().getRecommendedProductList();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return RefreshIndicator(
+      onRefresh: _loadResources,
+      child: Column(
         children: [
           Container(
             margin: EdgeInsets.only(

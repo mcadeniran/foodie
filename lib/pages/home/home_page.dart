@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/pages/cart/cart_history.dart';
+import 'package:foodie/pages/auth/sign_up_page.dart';
 
+import '../../pages/account/account_page.dart';
+import '../../pages/cart/cart_history.dart';
 import '../../pages/home/main_food_page.dart';
 import '../../utils/colors.dart';
 
@@ -15,14 +17,10 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   List pages = [
-    MainFoodPage(),
-    Container(
-      child: Center(child: Text("Page")),
-    ),
-    CartHistory(),
-    Container(
-      child: Center(child: Text("Page After the Next")),
-    ),
+    const MainFoodPage(),
+    const SignUpPage(),
+    const CartHistory(),
+    const AccountPage(),
   ];
 
   void onTapNav(int index) {
