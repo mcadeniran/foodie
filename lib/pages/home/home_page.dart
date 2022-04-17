@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/pages/auth/sign_up_page.dart';
 
+import 'package:foodie/pages/auth/sign_in_page.dart';
 import '../../pages/account/account_page.dart';
 import '../../pages/cart/cart_history.dart';
 import '../../pages/home/main_food_page.dart';
@@ -18,7 +18,9 @@ class _HomePageState extends State<HomePage> {
 
   List pages = [
     const MainFoodPage(),
-    const SignUpPage(),
+    Container(
+      child: const Text("History Page"),
+    ),
     const CartHistory(),
     const AccountPage(),
   ];

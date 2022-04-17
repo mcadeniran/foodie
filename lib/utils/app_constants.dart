@@ -11,7 +11,14 @@ class AppConstants {
   // static const String DRINKS_URI = '/api/v1/products/drinks';
   static const String UPLOAD_URL = BASE_URL + '/uploads/';
 
-  static const String TOKEN = 'FoodieToken';
+  // user and auth end points
+  static const String REGISTRATION_URI = '/api/v1/auth/register';
+  static const String LOGIN_URI = '/api/v1/auth/login';
+  static const String USER_INFO_URI = '/api/v1/customer/info';
+
+  static const String TOKEN = '';
+  static const String PHONE = '';
+  static const String PASSWORD = '';
   static const String CART_LIST = "Cart-list";
   static const String CART_HISTORY_LIST = "cart-history-list";
 }

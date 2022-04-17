@@ -29,13 +29,13 @@ class MyApp extends StatelessWidget {
       builder: (_) {
         return GetBuilder<RecommendedProductController>(
           builder: (_) {
-            return const GetMaterialApp(
+            return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Foodie',
-              home: SignInPage(),
+              // home: SignInPage(),
               // home: SplashScreen(),
-              // initialRoute: RouteHelper.getSplashPage(),
-              // getPages: RouteHelper.routes,
+              initialRoute: RouteHelper.getSplashPage(),
+              getPages: RouteHelper.routes,
             );
           },
         );

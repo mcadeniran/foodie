@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/base/no_data_page.dart';
+import 'package:foodie/controllers/auth_controller.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/popular_product_controller.dart';
@@ -286,8 +287,11 @@ class CartPage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            // popularProduct.addItem(product);
-                            cartController.addToHistory();
+                            if (Get.find<AuthController>().userLoggedIn()) {
+                              cartController.addToHistory();
+                            } else {
+                              Get.toNamed(RouteHelper.getSignInPage());
+                            }
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(
