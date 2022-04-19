@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/pages/cart/cart_page.dart';
-import 'package:foodie/routes/route_helper.dart';
 import 'package:get/get.dart';
 
+import '../../routes/route_helper.dart';
 import '../../controllers/cart_controller.dart';
 import '../../utils/app_constants.dart';
 import '../../controllers/popular_product_controller.dart';
-import '../../pages/home/main_food_page.dart';
 import '../../widgets/expandable_text_widget.dart';
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';

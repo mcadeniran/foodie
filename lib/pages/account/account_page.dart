@@ -157,9 +157,8 @@ class AccountPage extends StatelessWidget {
                       ),
                     )
                   : const CustomLoader())
-              : Container(
-                  child: Center(
-                      child: Column(
+              : Center(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
@@ -204,7 +203,7 @@ class AccountPage extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )),
+                  ),
                 );
         },
       ),

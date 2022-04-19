@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import 'package:foodie/data/api/api_client.dart';
-import 'package:foodie/utils/app_constants.dart';
+import '../../data/api/api_client.dart';
+import '../../utils/app_constants.dart';
 
 class UserRepo {
   final ApiClient apiClient;
@@ -10,6 +10,7 @@ class UserRepo {
   });
 
   Future<Response> getUserInfo() async {
-    return await apiClient.get(AppConstants.USER_INFO_URI);
+    // return await apiClient.get(AppConstants.USER_INFO_URI);
+    return await apiClient.getData(AppConstants.USER_INFO_URI);
   }
 }

@@ -60,7 +60,7 @@ class CartPage extends StatelessWidget {
           ),
           GetBuilder<CartController>(
             builder: (_cartController) {
-              return _cartController.getItems.length > 0
+              return _cartController.getItems.isNotEmpty
                   ? Positioned(
                       top: Dimensions.height20 * 5,
                       left: Dimensions.width20,
@@ -78,7 +78,7 @@ class CartPage extends StatelessWidget {
                               return ListView.builder(
                                 itemCount: _cartList.length,
                                 itemBuilder: (_, index) {
-                                  return Container(
+                                  return SizedBox(
                                     width: double.maxFinite,
                                     height: Dimensions.height20 * 5,
                                     child: Row(
@@ -141,7 +141,7 @@ class CartPage extends StatelessWidget {
                                           width: Dimensions.width10,
                                         ),
                                         Expanded(
-                                          child: Container(
+                                          child: SizedBox(
                                             height: Dimensions.height20 * 5,
                                             child: Column(
                                               crossAxisAlignment:

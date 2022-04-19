@@ -22,7 +22,7 @@ class CartHistory extends StatelessWidget {
     var getCartHistoryList =
         Get.find<CartController>().getCartHistoryList().reversed.toList();
 
-    Map<String, int> cartItemsPerOrder = Map();
+    Map<String, int> cartItemsPerOrder = {};
 
     for (int i = 0; i < getCartHistoryList.length; i++) {
       if (cartItemsPerOrder.containsKey(getCartHistoryList[i].time)) {
@@ -152,7 +152,7 @@ class CartHistory extends StatelessWidget {
                                             },
                                           ),
                                         ),
-                                        Container(
+                                        SizedBox(
                                           height: Dimensions.height20 * 4,
                                           child: Column(
                                             mainAxisAlignment:

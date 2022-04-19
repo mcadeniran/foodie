@@ -57,7 +57,7 @@ class SignInPage extends StatelessWidget {
                       SizedBox(
                         height: Dimensions.screenHeight * 0.05,
                       ),
-                      Container(
+                      SizedBox(
                         height: Dimensions.screenHeight * 0.25,
                         child: const Center(
                           child: CircleAvatar(

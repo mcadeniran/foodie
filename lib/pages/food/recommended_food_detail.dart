@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../pages/cart/cart_page.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/app_constants.dart';
 import '../../controllers/cart_controller.dart';
