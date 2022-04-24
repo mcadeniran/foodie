@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:foodie/utils/colors.dart';
 import 'package:get/get.dart';
 
 import '../../utils/dimensions.dart';
@@ -49,24 +50,31 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ScaleTransition(
             scale: animation,
-            child: Center(
-              child: Image.asset(
-                "assets/image/logo part 1.png",
-                width: Dimensions.splashImg,
-              ),
+            // child: Center(
+            //   child: Image.asset(
+            //     "assets/image/logo part 1.png",
+            //     width: Dimensions.splashImg,
+            //   ),
+            child: Image.asset(
+              "assets/image/foodie_1.png",
+              width: Dimensions.splashImg,
             ),
           ),
           Center(
             child: Image.asset(
-              "assets/image/logo part 2.png",
+              "assets/image/foodie_2.png",
               width: Dimensions.splashImg,
             ),
+            // child: Image.asset(
+            //   "assets/image/logo part 2.png",
+            //   width: Dimensions.splashImg,
+            // ),
           ),
         ],
       ),

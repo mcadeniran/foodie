@@ -46,7 +46,7 @@ class SignInPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.appMainBlack,
       body: GetBuilder<AuthController>(
         builder: (authController) {
           return !authController.isLoading
@@ -64,7 +64,8 @@ class SignInPage extends StatelessWidget {
                             backgroundColor: Colors.white,
                             radius: 80,
                             backgroundImage:
-                                AssetImage("assets/image/logo part 1.png"),
+                                AssetImage("assets/image/foodie_2.png"),
+                            // AssetImage("assets/image/logo part 1.png"),
                           ),
                         ),
                       ),
@@ -79,15 +80,15 @@ class SignInPage extends StatelessWidget {
                             Text(
                               "Hello",
                               style: TextStyle(
-                                fontSize: Dimensions.font20 * 3.5,
-                                fontWeight: FontWeight.bold,
-                              ),
+                                  fontSize: Dimensions.font20 * 3.5,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.mainTextColor),
                             ),
                             Text(
                               "Sign into your account",
                               style: TextStyle(
                                 fontSize: Dimensions.font20,
-                                color: Colors.grey[500],
+                                color: AppColors.subTextColor,
                                 // fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -121,7 +122,7 @@ class SignInPage extends StatelessWidget {
                             text: TextSpan(
                               text: "Sign into your account",
                               style: TextStyle(
-                                color: Colors.grey[500],
+                                color: AppColors.subTextColor,
                                 fontSize: Dimensions.font20,
                               ),
                             ),
@@ -144,13 +145,13 @@ class SignInPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(Dimensions.radius30),
-                            color: AppColors.mainColor,
+                            color: AppColors.appIconColor,
                           ),
                           child: Center(
                             child: BigText(
                               text: "Sign in",
                               size: Dimensions.font20 * 1.5,
-                              color: Colors.white,
+                              color: AppColors.appMainBlack,
                             ),
                           ),
                         ),
@@ -162,7 +163,7 @@ class SignInPage extends StatelessWidget {
                         text: TextSpan(
                             text: "Don't have an account?",
                             style: TextStyle(
-                              color: Colors.grey[500],
+                              color: AppColors.subTextColor,
                               fontSize: Dimensions.font20,
                             ),
                             children: [
@@ -175,7 +176,7 @@ class SignInPage extends StatelessWidget {
                                 text: " Create",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.teal,
+                                  color: AppColors.mainTextColor,
                                   fontSize: Dimensions.font20,
                                 ),
                               ),

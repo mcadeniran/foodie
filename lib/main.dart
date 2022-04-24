@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/controllers/cart_controller.dart';
+import 'package:foodie/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
 import './routes/route_helper.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<CartController>().getCartData();
+    Get.find<UserController>().getUserInfo();
     return GetBuilder<PopularProductController>(
       builder: (_) {
         return GetBuilder<RecommendedProductController>(
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
               // home: SplashScreen(),
               initialRoute: RouteHelper.getSplashPage(),
               getPages: RouteHelper.routes,
+              // theme: ThemeData.dark(),
             );
           },
         );

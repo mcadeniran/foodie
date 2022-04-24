@@ -41,17 +41,20 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 Column(
                   children: [
                     const BigText(
-                      text: "Country",
-                      color: AppColors.mainColor,
+                      text: "Utopia",
+                      color: AppColors.mainTextColor,
                       size: 30,
                     ),
                     Row(
                       children: const [
                         SmallText(
-                          text: "City",
-                          color: Colors.black54,
+                          text: "Gotham",
+                          color: AppColors.subTextColor,
                         ),
-                        Icon(Icons.arrow_drop_down_rounded)
+                        Icon(
+                          Icons.arrow_drop_down_rounded,
+                          color: AppColors.subTextColor,
+                        )
                       ],
                     ),
                   ],
@@ -62,12 +65,12 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     height: Dimensions.height45,
                     child: Icon(
                       Icons.search,
-                      color: Colors.white,
+                      color: AppColors.appMainBlack,
                       size: Dimensions.iconSize24,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius15),
-                      color: AppColors.mainColor,
+                      color: AppColors.appIconColor,
                     ),
                   ),
                 )

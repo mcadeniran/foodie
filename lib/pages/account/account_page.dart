@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodie/base/custom_loader.dart';
 import 'package:foodie/controllers/auth_controller.dart';
 import 'package:foodie/controllers/cart_controller.dart';
+import 'package:foodie/controllers/location_controller.dart';
 import 'package:foodie/controllers/user_controller.dart';
 import 'package:foodie/routes/route_helper.dart';
 
@@ -23,13 +24,14 @@ class AccountPage extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.mainColor,
+        backgroundColor: AppColors.appMainBlack,
         title: const BigText(
           text: "Profile",
           size: 24,
-          color: Colors.white,
+          color: AppColors.mainTextColor,
         ),
       ),
+      backgroundColor: AppColors.appMainBlack,
       body: GetBuilder<UserController>(
         builder: (userController) {
           return _userLoggedIn
@@ -41,8 +43,8 @@ class AccountPage extends StatelessWidget {
                         children: [
                           AppIcon(
                             icon: Icons.person,
-                            backgroundColor: AppColors.mainColor,
-                            iconColor: Colors.white,
+                            backgroundColor: AppColors.aboutIconColor,
+                            iconColor: AppColors.appMainBlack,
                             iconSize: Dimensions.height15 * 5,
                             size: Dimensions.height15 * 10,
                           ),
@@ -56,12 +58,13 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.person,
-                                      backgroundColor: AppColors.mainColor,
-                                      iconColor: Colors.white,
+                                      backgroundColor: AppColors.aboutIconColor,
+                                      iconColor: AppColors.appMainBlack,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: BigText(
+                                        color: AppColors.aboutTextColor,
                                         text: userController.userModel.name),
                                   ),
                                   SizedBox(
@@ -70,12 +73,13 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.phone,
-                                      backgroundColor: AppColors.yellowColor,
-                                      iconColor: Colors.white,
+                                      backgroundColor: AppColors.aboutIconColor,
+                                      iconColor: AppColors.appMainBlack,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: BigText(
+                                        color: AppColors.aboutTextColor,
                                         text: userController.userModel.phone),
                                   ),
                                   SizedBox(
@@ -84,40 +88,78 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.email,
-                                      backgroundColor: AppColors.yellowColor,
-                                      iconColor: Colors.white,
+                                      backgroundColor: AppColors.aboutIconColor,
+                                      iconColor: AppColors.appMainBlack,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: BigText(
+                                        color: AppColors.aboutTextColor,
                                         text: userController.userModel.email),
                                   ),
                                   SizedBox(
                                     height: Dimensions.height30,
                                   ),
-                                  AccountWidget(
-                                    appIcon: AppIcon(
-                                      icon: Icons.location_on,
-                                      backgroundColor: AppColors.yellowColor,
-                                      iconColor: Colors.white,
-                                      iconSize: Dimensions.height10 * 2.5,
-                                      size: Dimensions.height10 * 5,
-                                    ),
-                                    bigText: const BigText(
-                                        text: "Fill in your address"),
-                                  ),
+                                  GetBuilder<LocationController>(
+                                      builder: (locationController) {
+                                    if (_userLoggedIn &&
+                                        locationController
+                                            .addressList.isEmpty) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          Get.offNamed(
+                                              RouteHelper.getAddressPage());
+                                        },
+                                        child: AccountWidget(
+                                          appIcon: AppIcon(
+                                            icon: Icons.location_on,
+                                            backgroundColor:
+                                                AppColors.aboutIconColor,
+                                            iconColor: AppColors.appMainBlack,
+                                            iconSize: Dimensions.height10 * 2.5,
+                                            size: Dimensions.height10 * 5,
+                                          ),
+                                          bigText: const BigText(
+                                              color: AppColors.aboutTextColor,
+                                              text: "Fill in your address"),
+                                        ),
+                                      );
+                                    } else {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          Get.offNamed(
+                                              RouteHelper.getAddressPage());
+                                        },
+                                        child: AccountWidget(
+                                          appIcon: AppIcon(
+                                            icon: Icons.location_on,
+                                            backgroundColor:
+                                                AppColors.aboutIconColor,
+                                            iconColor: AppColors.appMainBlack,
+                                            iconSize: Dimensions.height10 * 2.5,
+                                            size: Dimensions.height10 * 5,
+                                          ),
+                                          bigText: const BigText(
+                                              color: AppColors.aboutTextColor,
+                                              text: "Your address"),
+                                        ),
+                                      );
+                                    }
+                                  }),
                                   SizedBox(
                                     height: Dimensions.height30,
                                   ),
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.message_outlined,
-                                      backgroundColor: Colors.redAccent,
-                                      iconColor: Colors.white,
+                                      backgroundColor: AppColors.aboutIconColor,
+                                      iconColor: AppColors.appMainBlack,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
-                                    bigText: const BigText(text: "Messages"),
+                                    bigText: const BigText(
+                                        color: AppColors.aboutTextColor,
+                                        text: "Messages"),
                                   ),
                                   SizedBox(
                                     height: Dimensions.height30,
@@ -131,6 +173,8 @@ class AccountPage extends StatelessWidget {
                                         Get.find<CartController>().clear();
                                         Get.find<CartController>()
                                             .clearHistory();
+                                        Get.find<LocationController>()
+                                            .clearAddressList();
                                         Get.offNamed(
                                             RouteHelper.getSignInPage());
                                       }
@@ -138,12 +182,15 @@ class AccountPage extends StatelessWidget {
                                     child: AccountWidget(
                                       appIcon: AppIcon(
                                         icon: Icons.logout,
-                                        backgroundColor: Colors.redAccent,
-                                        iconColor: Colors.white,
+                                        backgroundColor:
+                                            AppColors.aboutIconColor,
+                                        iconColor: AppColors.appMainBlack,
                                         iconSize: Dimensions.height10 * 2.5,
                                         size: Dimensions.height10 * 5,
                                       ),
-                                      bigText: const BigText(text: "Logout"),
+                                      bigText: const BigText(
+                                          color: AppColors.aboutTextColor,
+                                          text: "Logout"),
                                     ),
                                   ),
                                   SizedBox(
@@ -173,9 +220,13 @@ class AccountPage extends StatelessWidget {
                           image: const DecorationImage(
                             fit: BoxFit.cover,
                             image:
-                                AssetImage("assets/image/signintocontinue.png"),
+                                // AssetImage("assets/image/signintocontinue.png"),
+                                AssetImage("assets/image/foodie_2.png"),
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: Dimensions.height20,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -188,17 +239,30 @@ class AccountPage extends StatelessWidget {
                               left: Dimensions.width20,
                               right: Dimensions.width20),
                           decoration: BoxDecoration(
-                            color: AppColors.mainColor,
+                            color: AppColors.appIconColor,
                             borderRadius: BorderRadius.circular(
                               Dimensions.radius20,
                             ),
                           ),
-                          child: Center(
-                            child: BigText(
-                              text: "Sign in",
-                              color: Colors.white,
-                              size: Dimensions.font26,
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                width: Dimensions.width20,
+                              ),
+                              Icon(
+                                Icons.account_box,
+                                size: Dimensions.iconSize16 * 2,
+                              ),
+                              BigText(
+                                text: "Sign in",
+                                color: AppColors.appMainBlack,
+                                size: Dimensions.font26,
+                              ),
+                              SizedBox(
+                                width: Dimensions.width20,
+                              ),
+                            ],
                           ),
                         ),
                       ),

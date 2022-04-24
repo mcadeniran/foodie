@@ -56,11 +56,12 @@ class CartHistory extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: AppColors.appMainBlack,
       body: Column(
         children: [
           Container(
             height: Dimensions.height10 * 10,
-            color: AppColors.mainColor,
+            color: AppColors.appMainBlack,
             width: double.maxFinite,
             padding: EdgeInsets.only(
               top: Dimensions.height45,
@@ -70,11 +71,12 @@ class CartHistory extends StatelessWidget {
               children: const [
                 BigText(
                   text: "Cart History",
-                  color: Colors.white,
+                  color: AppColors.mainTextColor,
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart_outlined,
-                  iconColor: AppColors.mainColor,
+                  iconColor: AppColors.appMainBlack,
+                  backgroundColor: AppColors.appIconColor,
                 ),
               ],
             ),

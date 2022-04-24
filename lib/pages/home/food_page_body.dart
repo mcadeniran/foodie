@@ -52,7 +52,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         // Slider section
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return popularProducts.isLoaded
-              ? SizedBox(
+              ? Container(
+                  color: AppColors.appMainBlack,
                   height: Dimensions.pageView,
                   child: PageView.builder(
                     controller: pageController,
@@ -89,6 +90,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         // Popular text
         SizedBox(height: Dimensions.height30),
         Container(
+          color: AppColors.appMainBlack,
           margin: EdgeInsets.only(left: Dimensions.width30),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -99,7 +101,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 margin: const EdgeInsets.only(bottom: 3),
                 child: const BigText(
                   text: ".",
-                  color: Colors.black26,
+                  color: AppColors.subTextColor,
                 ),
               ),
               SizedBox(width: Dimensions.width10),
@@ -107,7 +109,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 margin: const EdgeInsets.only(bottom: 2),
                 child: const SmallText(
                   text: "food pairing",
-                  color: Colors.black26,
+                  color: AppColors.subTextColor,
                 ),
               ),
             ],
@@ -128,6 +130,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               RouteHelper.getRecommendedFood(index, 'home'));
                         },
                         child: Container(
+                          color: AppColors.appMainBlack,
                           margin: EdgeInsets.only(
                             left: Dimensions.width20,
                             right: Dimensions.width20,
@@ -140,8 +143,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 height: Dimensions.listViewImgSize,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(
-                                      Dimensions.radius20),
-                                  color: Colors.white38,
+                                      Dimensions.radius20 / 2),
+                                  color: AppColors.appMainBlack,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
@@ -162,7 +165,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                       bottomRight:
                                           Radius.circular(Dimensions.radius20),
                                     ),
-                                    color: Colors.white,
+                                    color: AppColors.appMainBlack,
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.only(
@@ -181,7 +184,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                         ),
                                         SizedBox(height: Dimensions.height10),
                                         const SmallText(
-                                          text: "With chinese characteristics",
+                                          text: "With some characteristics",
                                         ),
                                         SizedBox(height: Dimensions.height10),
                                         Row(
@@ -285,22 +288,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
-                color: Colors.white,
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color(0xffe8e8e8),
-                    blurRadius: 5.0,
-                    offset: Offset(0, 5),
-                  ),
-                  BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(-5, 0),
-                  ),
-                  BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(5, 0),
-                  ),
-                ],
+                color: AppColors.appMainBlack,
+                // boxShadow: const [
+                //   BoxShadow(
+                //     color: Colors.grey,
+                //     blurRadius: 5.0,
+                //     offset: Offset(0, 5),
+                //   ),
+                //   BoxShadow(
+                //     color: Colors.grey,
+                //     offset: Offset(-5, 0),
+                //   ),
+                //   BoxShadow(
+                //     color: Colors.grey,
+                //     offset: Offset(5, 0),
+                //   ),
+                // ],
               ),
               child: Container(
                 padding: EdgeInsets.only(

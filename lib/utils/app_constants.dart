@@ -4,7 +4,7 @@ class AppConstants {
   static const String APP_NAME = 'FOODIE';
   static const int APP_VERSION = 1;
 
-  static const String BASE_URL = 'http://7234-212-108-150-116.ngrok.io';
+  static const String BASE_URL = 'https://613e-194-27-73-122.eu.ngrok.io';
   // static const String BASE_URL = 'http://127.0.0.1:8000';
   // static const String BASE_URL = 'http://localhost:8000';
   static const String POPULAR_PRODUCT_URI = '/api/v1/products/popular';
@@ -16,6 +16,12 @@ class AppConstants {
   static const String REGISTRATION_URI = '/api/v1/auth/register';
   static const String LOGIN_URI = '/api/v1/auth/login';
   static const String USER_INFO_URI = '/api/v1/customer/info';
+
+  // Address and map
+  static const String USER_ADDRESS = "user_address";
+  static const String ADD_USER_ADDRESS = '/api/v1/customer/address/add';
+  static const String ADDRESS_LIST_URI = '/api/v1/customer/address/list';
+  static const String GEOCODE_URI = '/api/v1/config/geocode-api';
 
   static const String TOKEN = '';
   static const String PHONE = '';

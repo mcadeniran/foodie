@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/utils/colors.dart';
 import 'package:foodie/utils/dimensions.dart';
 import 'package:foodie/widgets/app_icon.dart';
 import 'package:foodie/widgets/big_text.dart';
@@ -14,12 +15,12 @@ class AccountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.appMainBlack,
         boxShadow: [
           BoxShadow(
             blurRadius: 1,
             offset: const Offset(0, 2),
-            color: Colors.grey.withOpacity(0.2),
+            color: const Color(0xFF728f7f).withOpacity(0.2),
           ),
         ],
       ),

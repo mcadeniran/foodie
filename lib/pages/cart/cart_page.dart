@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/base/no_data_page.dart';
 import 'package:foodie/controllers/auth_controller.dart';
+import 'package:foodie/controllers/location_controller.dart';
+import 'package:foodie/controllers/user_controller.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/popular_product_controller.dart';
@@ -20,6 +22,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.appMainBlack,
       body: Stack(
         children: [
           Positioned(
@@ -31,8 +34,8 @@ class CartPage extends StatelessWidget {
               children: [
                 AppIcon(
                   icon: Icons.arrow_back,
-                  iconColor: Colors.white,
-                  backgroundColor: AppColors.mainColor,
+                  iconColor: AppColors.appMainBlack,
+                  backgroundColor: AppColors.appIconColor,
                   iconSize: Dimensions.iconSize24,
                 ),
                 SizedBox(
@@ -44,15 +47,15 @@ class CartPage extends StatelessWidget {
                   },
                   child: AppIcon(
                     icon: Icons.home_outlined,
-                    iconColor: Colors.white,
-                    backgroundColor: AppColors.mainColor,
+                    iconColor: AppColors.appMainBlack,
+                    backgroundColor: AppColors.appIconColor,
                     iconSize: Dimensions.iconSize24,
                   ),
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart,
-                  iconColor: Colors.white,
-                  backgroundColor: AppColors.mainColor,
+                  iconColor: AppColors.appMainBlack,
+                  backgroundColor: AppColors.appIconColor,
                   iconSize: Dimensions.iconSize24,
                 ),
               ],
@@ -152,9 +155,13 @@ class CartPage extends StatelessWidget {
                                                 BigText(
                                                   text: cartController
                                                       .getItems[index].name!,
-                                                  color: Colors.black54,
+                                                  color:
+                                                      AppColors.mainTextColor,
                                                 ),
-                                                const SmallText(text: "Spicy"),
+                                                const SmallText(
+                                                  text: "Spicy",
+                                                  color: AppColors.subTextColor,
+                                                ),
                                                 Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -163,7 +170,8 @@ class CartPage extends StatelessWidget {
                                                     BigText(
                                                       text:
                                                           "\$${cartController.getItems[index].price!}",
-                                                      color: Colors.redAccent,
+                                                      color: AppColors
+                                                          .appIconColor,
                                                     ),
                                                     Container(
                                                       padding:
@@ -178,7 +186,8 @@ class CartPage extends StatelessWidget {
                                                             BorderRadius.circular(
                                                                 Dimensions
                                                                     .radius20),
-                                                        color: Colors.white,
+                                                        color: AppColors
+                                                            .mainTextColor,
                                                       ),
                                                       child: Row(
                                                         children: [
@@ -193,7 +202,7 @@ class CartPage extends StatelessWidget {
                                                             child: const Icon(
                                                               Icons.remove,
                                                               color: AppColors
-                                                                  .signColor,
+                                                                  .appMainBlack,
                                                             ),
                                                           ),
                                                           SizedBox(
@@ -201,10 +210,13 @@ class CartPage extends StatelessWidget {
                                                                       .width10 /
                                                                   2),
                                                           BigText(
-                                                              text: _cartList[
-                                                                      index]
-                                                                  .quantity
-                                                                  .toString()),
+                                                            text:
+                                                                _cartList[index]
+                                                                    .quantity
+                                                                    .toString(),
+                                                            color: AppColors
+                                                                .appMainBlack,
+                                                          ),
                                                           SizedBox(
                                                               width: Dimensions
                                                                       .width10 /
@@ -220,7 +232,7 @@ class CartPage extends StatelessWidget {
                                                             child: const Icon(
                                                               Icons.add,
                                                               color: AppColors
-                                                                  .signColor,
+                                                                  .appMainBlack,
                                                             ),
                                                           ),
                                                         ],
@@ -242,7 +254,9 @@ class CartPage extends StatelessWidget {
                         ),
                       ),
                     )
-                  : const NoDataPage(text: "Your cart is empty!");
+                  : const NoDataPage(
+                      text: "Your cart is empty!",
+                    );
             },
           ),
         ],
@@ -250,68 +264,81 @@ class CartPage extends StatelessWidget {
       bottomNavigationBar: GetBuilder<CartController>(
         builder: (cartController) {
           return Container(
-              height: Dimensions.bottomHeightBar,
-              // padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
-              padding: EdgeInsets.symmetric(
-                horizontal: Dimensions.width20,
-                vertical: Dimensions.height30,
+            height: Dimensions.bottomHeightBar,
+            // padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
+            padding: EdgeInsets.symmetric(
+              horizontal: Dimensions.width20,
+              vertical: Dimensions.height30,
+            ),
+            decoration: BoxDecoration(
+              color: AppColors.appMainBlack,
+              // border: Border.all(color: const Color(0xFF553e2b)),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(Dimensions.radius20),
+                topRight: Radius.circular(Dimensions.radius20),
               ),
-              decoration: BoxDecoration(
-                color: AppColors.buttonBackgroundColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(Dimensions.radius20 * 2),
-                  topRight: Radius.circular(Dimensions.radius20 * 2),
-                ),
-              ),
-              child: cartController.getItems.isNotEmpty
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
+            ),
+            child: cartController.getItems.isNotEmpty
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          vertical: Dimensions.height20,
+                          horizontal: Dimensions.width20,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius20),
+                          color: AppColors.appIconColor,
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(width: Dimensions.width10 / 2),
+                            BigText(
+                              text: '\$${cartController.totalAmount}',
+                              color: AppColors.appMainBlack,
+                            ),
+                            SizedBox(width: Dimensions.width10 / 2),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          if (Get.find<AuthController>().userLoggedIn()) {
+                            // Get.find<UserController>().getUserInfo();
+                            // cartController.addToHistory();
+                            if (Get.find<LocationController>()
+                                .addressList
+                                .isEmpty) {
+                              Get.toNamed(RouteHelper.getAddressPage());
+                            } else {
+                              Get.offNamed(RouteHelper.getInitial());
+                            }
+                          } else {
+                            Get.toNamed(RouteHelper.getSignInPage());
+                          }
+                        },
+                        child: Container(
                           padding: EdgeInsets.symmetric(
                             vertical: Dimensions.height20,
                             horizontal: Dimensions.width20,
                           ),
+                          child: const BigText(
+                            text: "Checkout",
+                            color: AppColors.appMainBlack,
+                          ),
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(Dimensions.radius20),
-                            color: Colors.white,
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(width: Dimensions.width10 / 2),
-                              BigText(text: '\$${cartController.totalAmount}'),
-                              SizedBox(width: Dimensions.width10 / 2),
-                            ],
+                            color: AppColors.appIconColor,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            if (Get.find<AuthController>().userLoggedIn()) {
-                              cartController.addToHistory();
-                            } else {
-                              Get.toNamed(RouteHelper.getSignInPage());
-                            }
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.height20,
-                              horizontal: Dimensions.width20,
-                            ),
-                            child: const BigText(
-                              text: "Checkout",
-                              color: Colors.white,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.radius20),
-                              color: AppColors.mainColor,
-                            ),
-                          ),
-                        )
-                      ],
-                    )
-                  : Container());
+                      ),
+                    ],
+                  )
+                : Container(),
+          );
         },
       ),
     );
