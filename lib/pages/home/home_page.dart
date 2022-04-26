@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
           indicatorColor: AppColors.mainColor,
         ),
         child: NavigationBar(
-          backgroundColor: const Color(0XFF050506),
+          backgroundColor: AppColors.appMainBlack,
           animationDuration: const Duration(seconds: 1),
           labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           height: Dimensions.height20 * 2.5,

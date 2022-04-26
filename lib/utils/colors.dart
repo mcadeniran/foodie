@@ -28,7 +28,8 @@ class AppColors {
   static const Color subTextColor = Color(0xFF728f7f);
   //static final Color yellowColor = const Color(0xFFfa7552);
   static const Color yellowColor = Color(0xFFffd379);
-  static const Color appMainBlack = Color(0xFF050506);
+  static const Color appMainBlack = Color(0xFF28282B);
+  // static const Color appMainBlack = Color(0xFF050506);
   // static const Color mainTextColor = Color(0xFF9ed0a9);
   static const Color mainTextColor = Color(0xFF9cc7c9);
   static const Color aboutTextColor = Color(0xFF728f7f);

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:foodie/data/repository/location_repo.dart';
 import 'package:foodie/models/address_model.dart';
 import 'package:foodie/models/response_model.dart';
+import 'package:foodie/utils/map_style.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -33,14 +34,24 @@ class LocationController extends GetxController implements GetxService {
   GoogleMapController get mapController => _mapController;
 
   bool _updateAddressData = true;
-  bool _changeAddress = true;
+  final bool _changeAddress = true;
 
   bool get loading => _loading;
   Position get position => _position;
   Position get pickPosition => _pickPosition;
 
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  bool _inZone = false;
+  bool get inZone => _inZone;
+
+  bool _buttonDisabled = true;
+  bool get buttonDisabled => _buttonDisabled;
+
   void setMapController(GoogleMapController mapController) {
     _mapController = mapController;
+    mapController.setMapStyle(mapStyle);
   }
 
   void updatePosition(CameraPosition position, bool fromAddress) async {
@@ -72,6 +83,14 @@ class LocationController extends GetxController implements GetxService {
             speedAccuracy: 1,
           );
         }
+
+        ResponseModel _responseModel = await getZone(
+            position.target.latitude.toString(),
+            position.target.longitude.toString(),
+            false);
+
+        _buttonDisabled = !_responseModel.isSuccess;
+
         if (_changeAddress) {
           String _address = await getAddressfromGeocode(
             LatLng(position.target.latitude, position.target.longitude),
@@ -84,6 +103,10 @@ class LocationController extends GetxController implements GetxService {
       } catch (e) {
         print(e);
       }
+      _loading = false;
+      update();
+    } else {
+      _updateAddressData = true;
     }
   }
 
@@ -169,5 +192,46 @@ class LocationController extends GetxController implements GetxService {
     _addressList = [];
     _allAddressList = [];
     update();
+  }
+
+  String getUserAddressFromLocalStorage() {
+    return locationRepo.getUserAddress();
+  }
+
+  void setAddAddressData() {
+    _position = _pickPosition;
+    _placemark = _pickPlacemark;
+    _updateAddressData = false;
+    update();
+  }
+
+  Future<ResponseModel> getZone(String lat, String lng, bool markerLoad) async {
+    late ResponseModel _responseModel;
+
+    if (markerLoad) {
+      _loading = true;
+    } else {
+      _isLoading = true;
+    }
+    update();
+
+    Response response = await locationRepo.getZone(lat, lng);
+    if (response.statusCode == 200) {
+      _inZone = true;
+      _responseModel = ResponseModel(true, response.body['zone_id'].toString());
+    } else {
+      _inZone = false;
+      _responseModel = ResponseModel(true, response.statusText!);
+    }
+    if (markerLoad) {
+      _loading = false;
+    } else {
+      _isLoading = false;
+    }
+    print('Zone response code is ' + response.statusCode.toString());
+
+    update();
+
+    return _responseModel;
   }
 }

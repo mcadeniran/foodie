@@ -3,12 +3,14 @@ import 'package:foodie/controllers/auth_controller.dart';
 import 'package:foodie/controllers/location_controller.dart';
 import 'package:foodie/controllers/user_controller.dart';
 import 'package:foodie/models/address_model.dart';
+import 'package:foodie/pages/address/pick_address_map.dart';
 import 'package:foodie/routes/route_helper.dart';
 import 'package:foodie/utils/colors.dart';
 import 'package:foodie/utils/dimensions.dart';
 import 'package:foodie/widgets/app_icon.dart';
 import 'package:foodie/widgets/app_text_field.dart';
 import 'package:foodie/widgets/big_text.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -32,13 +34,18 @@ class _AddAddressPageState extends State<AddAddressPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _isLogged = Get.find<AuthController>().userLoggedIn();
     if (_isLogged && Get.find<UserController>().userModel == null) {
       Get.find<UserController>().getUserInfo();
     }
     if (Get.find<LocationController>().addressList.isNotEmpty) {
+      if (Get.find<LocationController>().getUserAddressFromLocalStorage() ==
+          "") {
+        Get.find<LocationController>()
+            .saveUserAddress(Get.find<LocationController>().addressList.last);
+      }
+
       Get.find<LocationController>().getUserAddress();
       _cameraPosition = CameraPosition(
         target: LatLng(
@@ -70,8 +77,8 @@ class _AddAddressPageState extends State<AddAddressPage> {
         builder: (userController) {
           if (userController.userModel != null &&
               _contactPersonName.text.isEmpty) {
-            _contactPersonName.text = userController.userModel.name;
-            _contactPersonNumber.text = userController.userModel.phone;
+            _contactPersonName.text = '${userController.userModel?.name}';
+            _contactPersonNumber.text = '${userController.userModel?.phone}';
             if (Get.find<LocationController>().addressList.isNotEmpty) {
               _addressController.text =
                   Get.find<LocationController>().getUserAddress().address;
@@ -106,6 +113,17 @@ class _AddAddressPageState extends State<AddAddressPage> {
                               target: _initialPosition,
                               zoom: 17,
                             ),
+                            onTap: (latLng) {
+                              Get.toNamed(
+                                RouteHelper.getPickAddressPage(),
+                                arguments: PickAddressMap(
+                                  fromSignup: false,
+                                  fromAddress: true,
+                                  googleMapController:
+                                      locationController.mapController,
+                                ),
+                              );
+                            },
                             zoomControlsEnabled: false,
                             compassEnabled: false,
                             indoorViewEnabled: true,
