@@ -49,7 +49,7 @@ class PopularProductController extends GetxController {
       Get.snackbar(
         "Item count",
         "You can't reduce more!",
-        backgroundColor: AppColors.mainColor,
+        backgroundColor: AppColors.appTabColor,
         colorText: Colors.white,
       );
       if (_inCartItems > 0) {
@@ -61,7 +61,7 @@ class PopularProductController extends GetxController {
       Get.snackbar(
         "Item count",
         "You can't add more!",
-        backgroundColor: AppColors.mainColor,
+        backgroundColor: AppColors.appTabColor,
         colorText: Colors.white,
       );
       return 20;

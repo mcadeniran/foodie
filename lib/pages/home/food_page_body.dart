@@ -53,7 +53,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return popularProducts.isLoaded
               ? Container(
-                  color: AppColors.appMainBlack,
+                  color: AppColors.appMainColor,
                   height: Dimensions.pageView,
                   child: PageView.builder(
                     controller: pageController,
@@ -65,7 +65,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ),
                 )
               : const CircularProgressIndicator(
-                  color: AppColors.mainColor,
+                  color: AppColors.appTabColor,
                 );
         }),
         // Dots indication
@@ -77,7 +77,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   : popularProducts.popularProductList.length,
               position: _currPageValue,
               decorator: DotsDecorator(
-                activeColor: AppColors.mainColor,
+                activeColor: AppColors.appTabColor,
                 size: const Size.square(9.0),
                 activeSize: const Size(18.0, 9.0),
                 activeShape: RoundedRectangleBorder(
@@ -90,7 +90,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         // Popular text
         SizedBox(height: Dimensions.height30),
         Container(
-          color: AppColors.appMainBlack,
+          color: AppColors.appMainColor,
           margin: EdgeInsets.only(left: Dimensions.width30),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -101,7 +101,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 margin: const EdgeInsets.only(bottom: 3),
                 child: const BigText(
                   text: ".",
-                  color: AppColors.subTextColor,
+                  color: AppColors.appSubTextColor,
                 ),
               ),
               SizedBox(width: Dimensions.width10),
@@ -109,7 +109,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 margin: const EdgeInsets.only(bottom: 2),
                 child: const SmallText(
                   text: "food pairing",
-                  color: AppColors.subTextColor,
+                  color: AppColors.appSubTextColor,
                 ),
               ),
             ],
@@ -130,7 +130,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               RouteHelper.getRecommendedFood(index, 'home'));
                         },
                         child: Container(
-                          color: AppColors.appMainBlack,
+                          color: AppColors.appMainColor,
                           margin: EdgeInsets.only(
                             left: Dimensions.width20,
                             right: Dimensions.width20,
@@ -142,9 +142,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 width: Dimensions.listViewImgSize,
                                 height: Dimensions.listViewImgSize,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      Dimensions.radius20 / 2),
-                                  color: AppColors.appMainBlack,
+                                  // borderRadius: BorderRadius.circular(
+                                  //     Dimensions.radius20 / 2),
+                                  color: AppColors.appMainColor,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
@@ -157,15 +157,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               ),
                               Expanded(
                                 child: Container(
-                                  height: Dimensions.listViewTextContSize,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topRight:
-                                          Radius.circular(Dimensions.radius20),
-                                      bottomRight:
-                                          Radius.circular(Dimensions.radius20),
-                                    ),
-                                    color: AppColors.appMainBlack,
+                                  // height: Dimensions.listViewTextContSize,
+                                  height: Dimensions.listViewImgSize,
+                                  decoration: const BoxDecoration(
+                                    // borderRadius: BorderRadius.only(
+                                    //   topRight: Radius.circular(
+                                    //       Dimensions.radius20 / 2),
+                                    //   bottomRight: Radius.circular(
+                                    //       Dimensions.radius20 / 2),
+                                    // ),
+                                    color: AppColors.appMainColor,
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.only(
@@ -194,17 +195,18 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                             IconAndTextWidget(
                                                 icon: Icons.circle_sharp,
                                                 text: "Normal",
-                                                iconColor: AppColors.mainColor),
+                                                iconColor:
+                                                    AppColors.appTabColor),
                                             IconAndTextWidget(
                                                 icon: Icons.location_on,
                                                 text: "1.7km",
                                                 iconColor:
-                                                    AppColors.iconColor1),
+                                                    AppColors.appActionColor),
                                             IconAndTextWidget(
                                                 icon: Icons.access_time_rounded,
                                                 text: "32min",
-                                                iconColor:
-                                                    AppColors.iconColor2),
+                                                iconColor: AppColors
+                                                    .appComplimentColor),
                                           ],
                                         ),
                                       ],
@@ -219,7 +221,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     },
                   )
                 : const CircularProgressIndicator(
-                    color: AppColors.mainColor,
+                    color: AppColors.appTabColor,
                   );
           },
         ),
@@ -288,7 +290,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
-                color: AppColors.appMainBlack,
+                color: AppColors.appMainColor,
                 // boxShadow: const [
                 //   BoxShadow(
                 //     color: Colors.grey,

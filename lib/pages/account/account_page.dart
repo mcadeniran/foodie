@@ -24,14 +24,17 @@ class AccountPage extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.appMainBlack,
+        backgroundColor: AppColors.appMainColor,
+        iconTheme: const IconThemeData(
+          color: AppColors.appComplimentColor,
+        ),
         title: const BigText(
           text: "Profile",
           size: 24,
-          color: AppColors.mainTextColor,
+          color: AppColors.appMainTextColor,
         ),
       ),
-      backgroundColor: AppColors.appMainBlack,
+      backgroundColor: AppColors.appMainColor,
       body: GetBuilder<UserController>(
         builder: (userController) {
           return _userLoggedIn
@@ -43,8 +46,8 @@ class AccountPage extends StatelessWidget {
                         children: [
                           AppIcon(
                             icon: Icons.person,
-                            backgroundColor: AppColors.aboutIconColor,
-                            iconColor: AppColors.appMainBlack,
+                            backgroundColor: AppColors.appTabColor,
+                            iconColor: AppColors.appMainColor,
                             iconSize: Dimensions.height15 * 5,
                             size: Dimensions.height15 * 10,
                           ),
@@ -58,13 +61,13 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.person,
-                                      backgroundColor: AppColors.aboutIconColor,
-                                      iconColor: AppColors.appMainBlack,
+                                      backgroundColor: AppColors.appTabColor,
+                                      iconColor: AppColors.appMainColor,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: BigText(
-                                        color: AppColors.aboutTextColor,
+                                        color: AppColors.appSubTextColor,
                                         text: userController.userModel!.name),
                                   ),
                                   SizedBox(
@@ -73,13 +76,13 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.phone,
-                                      backgroundColor: AppColors.aboutIconColor,
-                                      iconColor: AppColors.appMainBlack,
+                                      backgroundColor: AppColors.appTabColor,
+                                      iconColor: AppColors.appMainColor,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: BigText(
-                                        color: AppColors.aboutTextColor,
+                                        color: AppColors.appSubTextColor,
                                         text: userController.userModel!.phone),
                                   ),
                                   SizedBox(
@@ -88,13 +91,13 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.email,
-                                      backgroundColor: AppColors.aboutIconColor,
-                                      iconColor: AppColors.appMainBlack,
+                                      backgroundColor: AppColors.appTabColor,
+                                      iconColor: AppColors.appMainColor,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: BigText(
-                                        color: AppColors.aboutTextColor,
+                                        color: AppColors.appSubTextColor,
                                         text: userController.userModel!.email),
                                   ),
                                   SizedBox(
@@ -114,13 +117,13 @@ class AccountPage extends StatelessWidget {
                                           appIcon: AppIcon(
                                             icon: Icons.location_on,
                                             backgroundColor:
-                                                AppColors.aboutIconColor,
-                                            iconColor: AppColors.appMainBlack,
+                                                AppColors.appTabColor,
+                                            iconColor: AppColors.appMainColor,
                                             iconSize: Dimensions.height10 * 2.5,
                                             size: Dimensions.height10 * 5,
                                           ),
                                           bigText: const BigText(
-                                              color: AppColors.aboutTextColor,
+                                              color: AppColors.appSubTextColor,
                                               text: "Fill in your address"),
                                         ),
                                       );
@@ -134,13 +137,13 @@ class AccountPage extends StatelessWidget {
                                           appIcon: AppIcon(
                                             icon: Icons.location_on,
                                             backgroundColor:
-                                                AppColors.aboutIconColor,
-                                            iconColor: AppColors.appMainBlack,
+                                                AppColors.appTabColor,
+                                            iconColor: AppColors.appMainColor,
                                             iconSize: Dimensions.height10 * 2.5,
                                             size: Dimensions.height10 * 5,
                                           ),
                                           bigText: const BigText(
-                                              color: AppColors.aboutTextColor,
+                                              color: AppColors.appSubTextColor,
                                               text: "Your address"),
                                         ),
                                       );
@@ -152,13 +155,13 @@ class AccountPage extends StatelessWidget {
                                   AccountWidget(
                                     appIcon: AppIcon(
                                       icon: Icons.message_outlined,
-                                      backgroundColor: AppColors.aboutIconColor,
-                                      iconColor: AppColors.appMainBlack,
+                                      backgroundColor: AppColors.appTabColor,
+                                      iconColor: AppColors.appMainColor,
                                       iconSize: Dimensions.height10 * 2.5,
                                       size: Dimensions.height10 * 5,
                                     ),
                                     bigText: const BigText(
-                                        color: AppColors.aboutTextColor,
+                                        color: AppColors.appSubTextColor,
                                         text: "Messages"),
                                   ),
                                   SizedBox(
@@ -182,14 +185,13 @@ class AccountPage extends StatelessWidget {
                                     child: AccountWidget(
                                       appIcon: AppIcon(
                                         icon: Icons.logout,
-                                        backgroundColor:
-                                            AppColors.aboutIconColor,
-                                        iconColor: AppColors.appMainBlack,
+                                        backgroundColor: AppColors.appTabColor,
+                                        iconColor: AppColors.appMainColor,
                                         iconSize: Dimensions.height10 * 2.5,
                                         size: Dimensions.height10 * 5,
                                       ),
                                       bigText: const BigText(
-                                          color: AppColors.aboutTextColor,
+                                          color: AppColors.appSubTextColor,
                                           text: "Logout"),
                                     ),
                                   ),
@@ -239,7 +241,7 @@ class AccountPage extends StatelessWidget {
                               left: Dimensions.width20,
                               right: Dimensions.width20),
                           decoration: BoxDecoration(
-                            color: AppColors.appIconColor,
+                            color: AppColors.appActionColor,
                             borderRadius: BorderRadius.circular(
                               Dimensions.radius20,
                             ),
@@ -256,7 +258,7 @@ class AccountPage extends StatelessWidget {
                               ),
                               BigText(
                                 text: "Sign in",
-                                color: AppColors.appMainBlack,
+                                color: AppColors.appMainColor,
                                 size: Dimensions.font26,
                               ),
                               SizedBox(

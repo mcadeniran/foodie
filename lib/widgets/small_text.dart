@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/utils/colors.dart';
 
 class SmallText extends StatelessWidget {
   final Color? color;
@@ -8,7 +9,7 @@ class SmallText extends StatelessWidget {
 
   const SmallText(
       {Key? key,
-      this.color = const Color(0xFFccc7c5),
+      this.color = AppColors.appSubTextColor,
       required this.text,
       this.size = 12,
       this.height = 1.2})

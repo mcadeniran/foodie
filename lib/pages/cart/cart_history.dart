@@ -56,12 +56,12 @@ class CartHistory extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.appMainBlack,
+      backgroundColor: AppColors.appMainColor,
       body: Column(
         children: [
           Container(
             height: Dimensions.height10 * 10,
-            color: AppColors.appMainBlack,
+            color: AppColors.appMainColor,
             width: double.maxFinite,
             padding: EdgeInsets.only(
               top: Dimensions.height45,
@@ -71,12 +71,12 @@ class CartHistory extends StatelessWidget {
               children: const [
                 BigText(
                   text: "Cart History",
-                  color: AppColors.mainTextColor,
+                  color: AppColors.appMainTextColor,
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart_outlined,
-                  iconColor: AppColors.appMainBlack,
-                  backgroundColor: AppColors.appIconColor,
+                  iconColor: AppColors.appMainColor,
+                  backgroundColor: AppColors.appActionColor,
                 ),
               ],
             ),
@@ -164,7 +164,8 @@ class CartHistory extends StatelessWidget {
                                             children: [
                                               const SmallText(
                                                 text: "Total",
-                                                color: AppColors.titleColor,
+                                                color:
+                                                    AppColors.appSubTextColor,
                                               ),
                                               BigText(
                                                 text: itemsPerOrder[i]
@@ -172,7 +173,8 @@ class CartHistory extends StatelessWidget {
                                                     (itemsPerOrder[i] == 1
                                                         ? " item"
                                                         : " items"),
-                                                color: AppColors.titleColor,
+                                                color:
+                                                    AppColors.appSubTextColor,
                                               ),
                                               GestureDetector(
                                                 onTap: () {
@@ -225,12 +227,13 @@ class CartHistory extends StatelessWidget {
                                                     border: Border.all(
                                                       width: 1,
                                                       color:
-                                                          AppColors.mainColor,
+                                                          AppColors.appTabColor,
                                                     ),
                                                   ),
                                                   child: const SmallText(
                                                     text: "Show more",
-                                                    color: AppColors.mainColor,
+                                                    color:
+                                                        AppColors.appTabColor,
                                                   ),
                                                 ),
                                               ),

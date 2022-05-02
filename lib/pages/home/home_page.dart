@@ -34,24 +34,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   Color selectedColor() {
-    return AppColors.appMainBlack;
+    return AppColors.appMainColor;
   }
 
   Color unSelectedColor() {
-    return AppColors.mainColor;
+    return AppColors.appTabColor;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.appMainBlack,
+      backgroundColor: AppColors.appMainColor,
       body: pages[_selectedIndex],
       bottomNavigationBar: NavigationBarTheme(
         data: const NavigationBarThemeData(
-          indicatorColor: AppColors.mainColor,
+          indicatorColor: AppColors.appTabColor,
         ),
         child: NavigationBar(
-          backgroundColor: AppColors.appMainBlack,
+          backgroundColor: AppColors.appMainColor,
           animationDuration: const Duration(seconds: 1),
           labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           height: Dimensions.height20 * 2.5,
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
     // return Scaffold(
     //   body: pages[_selectedIndex],
     //   bottomNavigationBar: BottomNavigationBar(
-    //     selectedItemColor: AppColors.mainColor,
+    //     selectedItemColor: AppColors.appTabColor,
     //     unselectedItemColor: Colors.amberAccent,
     //     showSelectedLabels: false,
     //     showUnselectedLabels: false,

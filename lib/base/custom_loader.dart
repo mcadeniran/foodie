@@ -16,7 +16,7 @@ class CustomLoader extends StatelessWidget {
           borderRadius: BorderRadius.circular(
             Dimensions.height20 * 2.5,
           ),
-          color: AppColors.mainColor,
+          color: AppColors.appTabColor,
         ),
         alignment: Alignment.center,
         child: const CircularProgressIndicator(

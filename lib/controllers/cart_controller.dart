@@ -59,7 +59,7 @@ class CartController extends GetxController {
         Get.snackbar(
           "Item count",
           "Please add at least an item to cart to continue",
-          backgroundColor: AppColors.mainColor,
+          backgroundColor: AppColors.appTabColor,
           colorText: Colors.white,
         );
       }

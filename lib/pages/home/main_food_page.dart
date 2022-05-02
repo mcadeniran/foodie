@@ -25,6 +25,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+      color: AppColors.appActionColor,
+      backgroundColor: AppColors.appMainColor,
       onRefresh: _loadResources,
       child: Column(
         children: [
@@ -42,18 +44,18 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   children: [
                     const BigText(
                       text: "Utopia",
-                      color: AppColors.mainTextColor,
+                      color: AppColors.appMainTextColor,
                       size: 30,
                     ),
                     Row(
                       children: const [
                         SmallText(
                           text: "Gotham",
-                          color: AppColors.subTextColor,
+                          color: AppColors.appSubTextColor,
                         ),
                         Icon(
                           Icons.arrow_drop_down_rounded,
-                          color: AppColors.subTextColor,
+                          color: AppColors.appSubTextColor,
                         )
                       ],
                     ),
@@ -65,12 +67,12 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     height: Dimensions.height45,
                     child: Icon(
                       Icons.search,
-                      color: AppColors.appMainBlack,
+                      color: AppColors.appMainColor,
                       size: Dimensions.iconSize24,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius15),
-                      color: AppColors.appIconColor,
+                      color: AppColors.appActionColor,
                     ),
                   ),
                 )

@@ -15,7 +15,7 @@ class AccountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.appMainBlack,
+        color: AppColors.appMainColor,
         boxShadow: [
           BoxShadow(
             blurRadius: 1,

@@ -67,7 +67,7 @@ class SignUpPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.appMainBlack,
+      backgroundColor: AppColors.appMainColor,
       body: GetBuilder<AuthController>(
         builder: (_authController) {
           return !_authController.isLoading
@@ -82,7 +82,7 @@ class SignUpPage extends StatelessWidget {
                         height: Dimensions.screenHeight * 0.25,
                         child: const Center(
                           child: CircleAvatar(
-                            backgroundColor: AppColors.mainTextColor,
+                            backgroundColor: AppColors.appMainTextColor,
                             radius: 80,
                             backgroundImage:
                                 // AssetImage("assets/image/logo part 1.png"),
@@ -133,13 +133,13 @@ class SignUpPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(Dimensions.radius30),
-                            color: AppColors.appIconColor,
+                            color: AppColors.appActionColor,
                           ),
                           child: Center(
                             child: BigText(
                               text: "Sign Up",
                               size: Dimensions.font20 * 1.5,
-                              color: AppColors.appMainBlack,
+                              color: AppColors.appMainColor,
                             ),
                           ),
                         ),
@@ -153,7 +153,7 @@ class SignUpPage extends StatelessWidget {
                             ..onTap = () => Get.back(),
                           text: "Have an account?",
                           style: TextStyle(
-                            color: AppColors.mainTextColor,
+                            color: AppColors.appMainTextColor,
                             fontSize: Dimensions.font20,
                           ),
                         ),
@@ -165,7 +165,7 @@ class SignUpPage extends StatelessWidget {
                         text: TextSpan(
                           text: "Sign up with socials",
                           style: TextStyle(
-                            color: AppColors.subTextColor,
+                            color: AppColors.appSubTextColor,
                             fontSize: Dimensions.font16,
                           ),
                         ),

@@ -27,7 +27,7 @@ class PopularFoodDetail extends StatelessWidget {
         .initProduct(product, Get.find<CartController>());
 
     return Scaffold(
-      backgroundColor: AppColors.appMainBlack,
+      backgroundColor: AppColors.appMainColor,
       body: Stack(
         children: [
           Positioned(
@@ -61,8 +61,8 @@ class PopularFoodDetail extends StatelessWidget {
                   },
                   child: const AppIcon(
                     icon: Icons.arrow_back,
-                    backgroundColor: AppColors.appIconColor,
-                    iconColor: AppColors.appMainBlack,
+                    backgroundColor: AppColors.appActionColor,
+                    iconColor: AppColors.appMainColor,
                   ),
                 ),
                 GetBuilder<PopularProductController>(
@@ -77,8 +77,8 @@ class PopularFoodDetail extends StatelessWidget {
                         children: [
                           const AppIcon(
                             icon: Icons.shopping_cart_outlined,
-                            backgroundColor: AppColors.appIconColor,
-                            iconColor: AppColors.appMainBlack,
+                            backgroundColor: AppColors.appActionColor,
+                            iconColor: AppColors.appMainColor,
                           ),
                           controller.totalItems >= 1
                               ? const Positioned(
@@ -88,20 +88,20 @@ class PopularFoodDetail extends StatelessWidget {
                                     icon: Icons.circle,
                                     size: 20,
                                     iconColor: Colors.transparent,
-                                    backgroundColor: AppColors.appMainBlack,
+                                    backgroundColor: AppColors.appMainTextColor,
                                   ),
                                 )
                               : Container(),
                           Get.find<PopularProductController>().totalItems >= 1
                               ? Positioned(
-                                  right: 6,
+                                  right: 3,
                                   top: 3,
                                   child: BigText(
                                     text: Get.find<PopularProductController>()
                                         .totalItems
                                         .toString(),
                                     size: 12,
-                                    color: Colors.white,
+                                    color: AppColors.appMainColor,
                                   ),
                                 )
                               : Container()
@@ -129,7 +129,7 @@ class PopularFoodDetail extends StatelessWidget {
                   topLeft: Radius.circular(Dimensions.radius20),
                   topRight: Radius.circular(Dimensions.radius20),
                 ),
-                color: AppColors.appMainBlack,
+                color: AppColors.appMainColor,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,7 +160,7 @@ class PopularFoodDetail extends StatelessWidget {
               vertical: Dimensions.height30,
             ),
             decoration: BoxDecoration(
-              color: AppColors.appMainBlack,
+              color: AppColors.appMainColor,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(Dimensions.radius20 * 2),
                 topRight: Radius.circular(Dimensions.radius20 * 2),
@@ -176,7 +176,7 @@ class PopularFoodDetail extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
-                    color: AppColors.appIconColor,
+                    color: AppColors.appActionColor,
                   ),
                   child: Row(
                     children: [
@@ -186,22 +186,22 @@ class PopularFoodDetail extends StatelessWidget {
                         },
                         child: const Icon(
                           Icons.remove,
-                          color: AppColors.appMainBlack,
+                          color: AppColors.appMainColor,
                         ),
                       ),
-                      SizedBox(width: Dimensions.width10 / 2),
+                      SizedBox(width: Dimensions.width20),
                       BigText(
                         text: popularProduct.inCartItems.toString(),
-                        color: AppColors.appMainBlack,
+                        color: AppColors.appMainColor,
                       ),
-                      SizedBox(width: Dimensions.width10 / 2),
+                      SizedBox(width: Dimensions.width20),
                       GestureDetector(
                         onTap: () {
                           popularProduct.setQuantity(true);
                         },
                         child: const Icon(
                           Icons.add,
-                          color: AppColors.appMainBlack,
+                          color: AppColors.appMainColor,
                         ),
                       ),
                     ],
@@ -216,13 +216,24 @@ class PopularFoodDetail extends StatelessWidget {
                       vertical: Dimensions.height20,
                       horizontal: Dimensions.width20,
                     ),
-                    child: BigText(
-                      text: "\$ ${product.price} | Add to cart",
-                      color: AppColors.appMainBlack,
+                    child: Row(
+                      children: [
+                        const BigText(
+                          text: "Add to cart",
+                          color: AppColors.appMainColor,
+                        ),
+                        SizedBox(
+                          width: Dimensions.width30 * 2,
+                        ),
+                        BigText(
+                          text: "\$${product.price}",
+                          color: AppColors.appMainColor,
+                        ),
+                      ],
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius20),
-                      color: AppColors.appIconColor,
+                      color: AppColors.appActionColor,
                     ),
                   ),
                 )

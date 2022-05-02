@@ -1,38 +1,21 @@
 import 'dart:ui';
 
-// class AppColors {
-//   static const Color textColor = Color(0xFFccc7c5);
-//   static const Color mainColor = Color(0xFF89dad0);
-//   //static final Color mainColor = const Color(0xFFfa7552);
-//   static const Color iconColor1 = Color(0xFFffd28d);
-//   static const Color iconColor2 = Color(0xFFfcab88);
-//   static const Color paraColor = Color(0xFF8f837f);
-//   static const Color buttonBackgroundColor = Color(0xFFf7f6f4);
-//   static const Color signColor = Color(0xFFa9a29f);
-//   static const Color titleColor = Color(0xFF5c524f);
-//   static const Color mainBlackColor = Color(0xFF332d2b);
-//   //static final Color yellowColor = const Color(0xFFfa7552);
-//   static const Color yellowColor = Color(0xFFffd379);
-// }
+import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color textColor = Color(0xFFccc7c5);
-  static const Color mainColor = Color(0xFF9cc7c9);
-  //static final Color mainColor = const Color(0xFFfa7552);
-  static const Color iconColor1 = Color(0xFF9ed0a9);
-  static const Color iconColor2 = Color(0xFFb6a343);
-  static const Color paraColor = Color(0xFF728f7f);
-  static const Color buttonBackgroundColor = Color(0xFFf7f6f4);
-  static const Color signColor = Color(0xFFa9a29f);
-  static const Color titleColor = Color(0xFF5c524f);
-  static const Color subTextColor = Color(0xFF728f7f);
-  //static final Color yellowColor = const Color(0xFFfa7552);
-  static const Color yellowColor = Color(0xFFffd379);
-  static const Color appMainBlack = Color(0xFF28282B);
-  // static const Color appMainBlack = Color(0xFF050506);
-  // static const Color mainTextColor = Color(0xFF9ed0a9);
-  static const Color mainTextColor = Color(0xFF9cc7c9);
-  static const Color aboutTextColor = Color(0xFF728f7f);
-  static const Color aboutIconColor = Color(0xFF9cc7c9);
-  static const Color appIconColor = Color(0xFFb6a343);
+  static const Color appMainColor = Color(0xFFE6F4F1);
+  static const Color appComplimentColor = Color(0xFF00263E);
+  static const Color appActionColor = Color(0xFF36619F);
+  static const Color appTabColor = Color(0xFF1487E1);
+  static const Color appMainTextColor = Color(0xFF22455F);
+  static const Color appSubTextColor = Color(0xFF466682);
 }
+
+// class AppColors {
+//   static const Color appMainColor = Color(0xFF0F313D);
+//   static const Color appActionColor = Color(0xFF85F9BD);
+//   static const Color appTabColor = Color(0xFF00A8F6);
+//   static const Color appComplimentColor = Color(0xFF006190);
+//   static const Color appMainTextColor = Color(0xFFAACBDA);
+//   static const Color appSubTextColor = Color(0xFFD2E7E2);
+// }

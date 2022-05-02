@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/controllers/cart_controller.dart';
-import 'package:foodie/controllers/location_controller.dart';
-import 'package:foodie/controllers/user_controller.dart';
-import 'package:foodie/utils/map_style.dart';
 import 'package:get/get.dart';
 
 import './routes/route_helper.dart';

@@ -24,7 +24,7 @@ class AppColumn extends StatelessWidget {
               children: List.generate(
                 5,
                 (index) => const Icon(Icons.star,
-                    color: AppColors.mainColor, size: 15),
+                    color: AppColors.appTabColor, size: 15),
               ),
             ),
             const SizedBox(width: 10),
@@ -42,15 +42,15 @@ class AppColumn extends StatelessWidget {
             IconAndTextWidget(
                 icon: Icons.circle_sharp,
                 text: "Normal",
-                iconColor: AppColors.mainColor),
+                iconColor: AppColors.appTabColor),
             IconAndTextWidget(
                 icon: Icons.location_on,
                 text: "1.7km",
-                iconColor: AppColors.iconColor1),
+                iconColor: AppColors.appActionColor),
             IconAndTextWidget(
                 icon: Icons.access_time_rounded,
                 text: "32min",
-                iconColor: AppColors.iconColor2),
+                iconColor: AppColors.appComplimentColor),
           ],
         ),
       ],

@@ -7,10 +7,8 @@ import 'package:foodie/pages/address/pick_address_map.dart';
 import 'package:foodie/routes/route_helper.dart';
 import 'package:foodie/utils/colors.dart';
 import 'package:foodie/utils/dimensions.dart';
-import 'package:foodie/widgets/app_icon.dart';
 import 'package:foodie/widgets/app_text_field.dart';
 import 'package:foodie/widgets/big_text.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -64,13 +62,16 @@ class _AddAddressPageState extends State<AddAddressPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.appMainBlack,
+      backgroundColor: AppColors.appMainColor,
       appBar: AppBar(
-        backgroundColor: AppColors.appMainBlack,
+        backgroundColor: AppColors.appMainColor,
+        iconTheme: const IconThemeData(
+          color: AppColors.appComplimentColor,
+        ),
         title: const BigText(
           text: "Address Page",
           size: 24,
-          color: AppColors.mainTextColor,
+          color: AppColors.appMainTextColor,
         ),
       ),
       body: GetBuilder<UserController>(
@@ -103,7 +104,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           width: 2,
-                          color: AppColors.mainTextColor,
+                          color: AppColors.appMainTextColor,
                         ),
                       ),
                       child: Stack(
@@ -167,10 +168,10 @@ class _AddAddressPageState extends State<AddAddressPage> {
                                   borderRadius: BorderRadius.circular(
                                       Dimensions.radius20 / 5),
                                   // color: Theme.of(context).cardColor,
-                                  color: AppColors.appMainBlack,
+                                  color: AppColors.appMainColor,
                                   boxShadow: const [
                                     BoxShadow(
-                                      color: AppColors.iconColor2,
+                                      color: AppColors.appComplimentColor,
                                       spreadRadius: 1,
                                       blurRadius: 2,
                                     )
@@ -184,8 +185,8 @@ class _AddAddressPageState extends State<AddAddressPage> {
                                           : Icons.location_on,
                                   color: locationController.addressTypeIndex ==
                                           index
-                                      ? AppColors.mainTextColor
-                                      : AppColors.subTextColor,
+                                      ? AppColors.appTabColor
+                                      : AppColors.appSubTextColor,
                                 ),
                               ),
                             );
@@ -256,7 +257,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                   vertical: Dimensions.height30,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.appMainBlack,
+                  color: AppColors.appMainColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(Dimensions.radius20 * 2),
                     topRight: Radius.circular(Dimensions.radius20 * 2),
@@ -296,13 +297,13 @@ class _AddAddressPageState extends State<AddAddressPage> {
                         ),
                         child: const BigText(
                           text: "Save Address",
-                          color: AppColors.appMainBlack,
+                          color: AppColors.appMainColor,
                           size: 26,
                         ),
                         decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius20),
-                          color: const Color(0xffb6a343),
+                          color: AppColors.appActionColor,
                         ),
                       ),
                     )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/utils/colors.dart';
 
 import '../utils/dimensions.dart';
 
@@ -10,7 +11,7 @@ class BigText extends StatelessWidget {
 
   const BigText(
       {Key? key,
-      this.color = const Color(0xFF9cc7c9),
+      this.color = AppColors.appMainTextColor,
       required this.text,
       this.overflow = TextOverflow.ellipsis,
       this.size = 0})

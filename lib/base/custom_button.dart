@@ -12,6 +12,8 @@ class CustomButton extends StatelessWidget {
   final double? fontSize;
   final double radius;
   final IconData? icon;
+  final Color backgroundColor;
+  final Color textColor;
 
   const CustomButton(
       {Key? key,
@@ -23,18 +25,20 @@ class CustomButton extends StatelessWidget {
       this.width,
       this.fontSize,
       this.radius = 5,
-      this.icon})
+      this.icon,
+      this.backgroundColor = AppColors.appMainTextColor,
+      this.textColor = Colors.white})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle _flatButton = TextButton.styleFrom(
-      primary: AppColors.appMainBlack,
+      // primary: AppColors.appMainColor,
       backgroundColor: onPressed == null
           ? Theme.of(context).disabledColor
           : transparent
               ? Colors.transparent
-              : AppColors.mainTextColor,
+              : backgroundColor,
       maximumSize: Size(width != null ? width! : Dimensions.screenWidth,
           height != null ? height! : 50),
       padding: EdgeInsets.zero,
@@ -60,8 +64,9 @@ class CustomButton extends StatelessWidget {
                       child: Icon(
                         icon,
                         color: transparent
-                            ? AppColors.appMainBlack
-                            : Theme.of(context).cardColor,
+                            ? AppColors.appMainColor
+                            // : Theme.of(context).cardColor,
+                            : textColor,
                       ),
                     )
                   : const SizedBox(),
@@ -69,9 +74,8 @@ class CustomButton extends StatelessWidget {
                 buttonText,
                 style: TextStyle(
                   fontSize: fontSize ?? Dimensions.font16,
-                  color: transparent
-                      ? Theme.of(context).primaryColor
-                      : Theme.of(context).cardColor,
+                  color:
+                      transparent ? Theme.of(context).primaryColor : textColor,
                 ),
               ),
             ],

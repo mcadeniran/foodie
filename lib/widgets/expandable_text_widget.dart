@@ -41,7 +41,7 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
           ? SmallText(
               text: firstHalf,
               size: Dimensions.font16,
-              color: AppColors.paraColor,
+              color: AppColors.appSubTextColor,
               height: 1.8,
             )
           : Column(
@@ -51,7 +51,7 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                       ? (firstHalf + "...")
                       : (firstHalf + secondHalf),
                   size: Dimensions.font16,
-                  color: AppColors.paraColor,
+                  color: AppColors.appSubTextColor,
                   height: 1.8,
                 ),
                 InkWell(
@@ -64,13 +64,13 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                     children: [
                       SmallText(
                         text: hiddenText ? "Show more" : "Show less",
-                        color: AppColors.mainColor,
+                        color: AppColors.appTabColor,
                       ),
                       Icon(
                         hiddenText
                             ? Icons.arrow_drop_down
                             : Icons.arrow_drop_up,
-                        color: AppColors.mainColor,
+                        color: AppColors.appTabColor,
                       ),
                     ],
                   ),
