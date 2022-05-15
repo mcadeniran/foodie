@@ -8,15 +8,25 @@ import './small_text.dart';
 
 class AppColumn extends StatelessWidget {
   final String text;
+  final String price;
 
-  const AppColumn({Key? key, required this.text}) : super(key: key);
+  const AppColumn({Key? key, required this.text, this.price = '0'})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BigText(text: text, size: Dimensions.font26),
+        price != '0'
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  BigText(text: text, size: Dimensions.font26),
+                  BigText(text: price, size: Dimensions.font26),
+                ],
+              )
+            : BigText(text: text, size: Dimensions.font26),
         SizedBox(height: Dimensions.height10),
         Row(
           children: [

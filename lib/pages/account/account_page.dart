@@ -21,6 +21,7 @@ class AccountPage extends StatelessWidget {
     bool _userLoggedIn = Get.find<AuthController>().userLoggedIn();
     if (_userLoggedIn) {
       Get.find<UserController>().getUserInfo();
+      Get.find<LocationController>().getAddressList();
     }
     return Scaffold(
       appBar: AppBar(
@@ -254,6 +255,7 @@ class AccountPage extends StatelessWidget {
                               ),
                               Icon(
                                 Icons.account_box,
+                                color: AppColors.appMainColor,
                                 size: Dimensions.iconSize16 * 2,
                               ),
                               BigText(

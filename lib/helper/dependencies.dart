@@ -1,3 +1,5 @@
+import 'package:foodie/controllers/order_controller.dart';
+import 'package:foodie/data/repository/order_repo.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,6 +40,7 @@ Future<void> init() async {
   Get.lazyPut(() => CartRepo(sharedPreferences: Get.find()));
   Get.lazyPut(
       () => LocationRepo(apiClient: Get.find(), sharedPreferences: Get.find()));
+  Get.lazyPut(() => OrderRepo(apiClient: Get.find()));
 
   // controllers
   Get.lazyPut(() => AuthController(authRepo: Get.find()));
@@ -47,4 +50,5 @@ Future<void> init() async {
       () => RecommendedProductController(recommendedProductRepo: Get.find()));
   Get.lazyPut(() => CartController(cartRepo: Get.find()));
   Get.lazyPut(() => LocationController(locationRepo: Get.find()));
+  Get.lazyPut(() => OrderController(orderRepo: Get.find()));
 }

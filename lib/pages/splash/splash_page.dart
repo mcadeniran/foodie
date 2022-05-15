@@ -38,7 +38,8 @@ class _SplashScreenState extends State<SplashScreen>
 
     animation = CurvedAnimation(
       parent: controller,
-      curve: Curves.linear,
+      // curve: Curves.linear,
+      curve: Curves.easeIn,
     );
 
     Timer(
@@ -50,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.appMainColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

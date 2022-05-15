@@ -237,7 +237,8 @@ class RecommendedFoodDetail extends StatelessWidget {
                               width: Dimensions.width30 * 2,
                             ),
                             BigText(
-                              text: "\$${product.price}",
+                              text:
+                                  "\$${product.price * controller.inCartItems}",
                               color: AppColors.appMainColor,
                             ),
                           ],

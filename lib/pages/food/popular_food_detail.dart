@@ -136,6 +136,7 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   AppColumn(
                     text: product.name!,
+                    price: "\$${product.price}",
                   ),
                   SizedBox(height: Dimensions.height20),
                   const BigText(text: "Description"),
@@ -226,7 +227,8 @@ class PopularFoodDetail extends StatelessWidget {
                           width: Dimensions.width30 * 2,
                         ),
                         BigText(
-                          text: "\$${product.price}",
+                          text:
+                              "\$${product.price * popularProduct.inCartItems}",
                           color: AppColors.appMainColor,
                         ),
                       ],

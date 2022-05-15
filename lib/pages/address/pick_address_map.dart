@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/base/custom_button.dart';
 import 'package:foodie/controllers/location_controller.dart';
+import 'package:foodie/pages/address/widgets/search_location_dialogue_page.dart';
 import 'package:foodie/routes/route_helper.dart';
 import 'package:foodie/utils/colors.dart';
 import 'package:foodie/utils/dimensions.dart';
@@ -68,8 +69,9 @@ class _PickAddressMapState extends State<PickAddressMap> {
                     Get.find<LocationController>()
                         .updatePosition(_cameraPosition, false);
                   },
-                  onMapCreated: (GoogleMapController controller) {
-                    controller.setMapStyle(mapStyle);
+                  onMapCreated: (GoogleMapController mapController) {
+                    mapController.setMapStyle(mapStyle);
+                    _mapController = mapController;
                   },
                 ),
                 Center(
@@ -85,34 +87,46 @@ class _PickAddressMapState extends State<PickAddressMap> {
                   top: Dimensions.height45,
                   left: Dimensions.width20,
                   right: Dimensions.width20,
-                  child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: Dimensions.width10),
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: AppColors.appMainColor.withOpacity(0.8),
-                      borderRadius:
-                          BorderRadius.circular(Dimensions.radius20 / 2),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          size: 25,
-                          color: AppColors.appMainTextColor,
-                        ),
-                        Expanded(
-                          child: Text(
-                            locationController.pickPlacemark.name ?? '',
-                            style: TextStyle(
-                              color: AppColors.appMainTextColor,
-                              fontSize: Dimensions.font16,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                  child: InkWell(
+                    onTap: () => Get.dialog(
+                        LocationDialogue(mapController: _mapController)),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: Dimensions.width10),
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: AppColors.appMainColor.withOpacity(0.8),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius20 / 2),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on,
+                            size: 25,
+                            color: AppColors.appMainTextColor,
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Text(
+                              locationController.pickPlacemark.name ?? '',
+                              style: TextStyle(
+                                color: AppColors.appMainTextColor,
+                                fontSize: Dimensions.font16,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          SizedBox(
+                            width: Dimensions.width10,
+                          ),
+                          const Icon(
+                            Icons.search,
+                            size: 25,
+                            color: AppColors.appMainTextColor,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

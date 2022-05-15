@@ -61,10 +61,10 @@ class SignInPage extends StatelessWidget {
                         height: Dimensions.screenHeight * 0.25,
                         child: const Center(
                           child: CircleAvatar(
-                            backgroundColor: Colors.white,
+                            backgroundColor: AppColors.appMainColor,
                             radius: 80,
                             backgroundImage:
-                                AssetImage("assets/image/foodie_2.png"),
+                                AssetImage("assets/image/foodie_2_sm.png"),
                             // AssetImage("assets/image/logo part 1.png"),
                           ),
                         ),

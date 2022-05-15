@@ -34,6 +34,7 @@ class ApiClient extends GetConnect implements GetxService {
   }) async {
     try {
       Response response = await get(uri, headers: headers ?? _mainHeaders);
+      // print(response.body.toString());
       return response;
     } catch (e) {
       return Response(

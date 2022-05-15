@@ -78,6 +78,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               position: _currPageValue,
               decorator: DotsDecorator(
                 activeColor: AppColors.appTabColor,
+                color: AppColors.appActionColor,
                 size: const Size.square(9.0),
                 activeSize: const Size(18.0, 9.0),
                 activeShape: RoundedRectangleBorder(
@@ -142,8 +143,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 width: Dimensions.listViewImgSize,
                                 height: Dimensions.listViewImgSize,
                                 decoration: BoxDecoration(
-                                  // borderRadius: BorderRadius.circular(
-                                  //     Dimensions.radius20 / 2),
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.radius20 / 2),
                                   color: AppColors.appMainColor,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
@@ -159,13 +160,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 child: Container(
                                   // height: Dimensions.listViewTextContSize,
                                   height: Dimensions.listViewImgSize,
-                                  decoration: const BoxDecoration(
-                                    // borderRadius: BorderRadius.only(
-                                    //   topRight: Radius.circular(
-                                    //       Dimensions.radius20 / 2),
-                                    //   bottomRight: Radius.circular(
-                                    //       Dimensions.radius20 / 2),
-                                    // ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(
+                                          Dimensions.radius20 / 2),
+                                      bottomRight: Radius.circular(
+                                          Dimensions.radius20 / 2),
+                                    ),
                                     color: AppColors.appMainColor,
                                   ),
                                   child: Padding(
@@ -268,8 +269,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius30),
                 color: index.isEven
-                    ? const Color(0xFF69c5df)
-                    : const Color(0xFF9294cc),
+                    ? AppColors.appActionColor
+                    : AppColors.appTabColor,
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
