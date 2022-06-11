@@ -29,6 +29,9 @@ class AccountPage extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: AppColors.appComplimentColor,
         ),
+        leading: const BackButton(
+          color: AppColors.appMainTextColor,
+        ),
         title: const BigText(
           text: "Profile",
           size: 24,

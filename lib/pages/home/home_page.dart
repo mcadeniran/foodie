@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
+import '../../pages/order/order_page.dart';
 import '../../pages/account/account_page.dart';
 import '../../pages/cart/cart_history.dart';
 import '../../pages/home/main_food_page.dart';
@@ -19,10 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   List pages = [
     const MainFoodPage(),
-    const Center(
-        child: BigText(
-      text: "History Page",
-    )),
+    const OrderPage(),
     const CartHistory(),
     const AccountPage(),
   ];

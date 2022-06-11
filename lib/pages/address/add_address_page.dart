@@ -68,6 +68,9 @@ class _AddAddressPageState extends State<AddAddressPage> {
         iconTheme: const IconThemeData(
           color: AppColors.appComplimentColor,
         ),
+        leading: const BackButton(
+          color: AppColors.appMainTextColor,
+        ),
         title: const BigText(
           text: "Address Page",
           size: 24,
@@ -92,9 +95,10 @@ class _AddAddressPageState extends State<AddAddressPage> {
                   '${locationController.placemark.locality ?? ''}'
                   '${locationController.placemark.postalCode ?? ''}'
                   '${locationController.placemark.country ?? ''}';
-              print("Address in my view is " + _addressController.text);
+              // print("Address in my view is " + _addressController.text);
               return SingleChildScrollView(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       height: 140,
@@ -237,7 +241,6 @@ class _AddAddressPageState extends State<AddAddressPage> {
                         hintText: "Your phone number",
                         icon: Icons.phone),
                   ],
-                  crossAxisAlignment: CrossAxisAlignment.start,
                 ),
               );
             },
@@ -295,15 +298,15 @@ class _AddAddressPageState extends State<AddAddressPage> {
                           vertical: Dimensions.height20,
                           horizontal: Dimensions.width20,
                         ),
-                        child: const BigText(
-                          text: "Save Address",
-                          color: AppColors.appMainColor,
-                          size: 26,
-                        ),
                         decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius20),
                           color: AppColors.appActionColor,
+                        ),
+                        child: const BigText(
+                          text: "Save Address",
+                          color: AppColors.appMainColor,
+                          size: 26,
                         ),
                       ),
                     )

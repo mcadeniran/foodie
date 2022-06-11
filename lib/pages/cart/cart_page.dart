@@ -347,8 +347,10 @@ class CartPage extends StatelessWidget {
                                 scheduleAt: '',
                                 distance: 6.9,
                               );
-                              Get.find<OrderController>()
-                                  .placeOrder(placeOrder, _callback);
+                              Get.find<OrderController>().placeOrder(
+                                placeOrder,
+                                _callback,
+                              );
                             }
                           } else {
                             Get.toNamed(RouteHelper.getSignInPage());
@@ -359,14 +361,14 @@ class CartPage extends StatelessWidget {
                             vertical: Dimensions.height20,
                             horizontal: Dimensions.width20,
                           ),
-                          child: const BigText(
-                            text: "Checkout",
-                            color: AppColors.appMainColor,
-                          ),
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(Dimensions.radius20),
                             color: AppColors.appActionColor,
+                          ),
+                          child: const BigText(
+                            text: "Checkout",
+                            color: AppColors.appMainColor,
                           ),
                         ),
                       ),
@@ -381,6 +383,9 @@ class CartPage extends StatelessWidget {
 
   void _callback(bool isSuccess, String message, String orderID) {
     if (isSuccess) {
+      Get.find<CartController>().clear();
+      Get.find<CartController>().removeCartSharedPreference();
+      Get.find<CartController>().addToHistory();
       Get.offNamed(RouteHelper.getPaymentPage(
           orderID, Get.find<UserController>().userModel!.id));
     } else {
