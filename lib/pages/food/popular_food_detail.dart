@@ -217,6 +217,10 @@ class PopularFoodDetail extends StatelessWidget {
                       vertical: Dimensions.height20,
                       horizontal: Dimensions.width20,
                     ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
+                      color: AppColors.appActionColor,
+                    ),
                     child: Row(
                       children: [
                         const BigText(
@@ -232,10 +236,6 @@ class PopularFoodDetail extends StatelessWidget {
                           color: AppColors.appMainColor,
                         ),
                       ],
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius20),
-                      color: AppColors.appActionColor,
                     ),
                   ),
                 )

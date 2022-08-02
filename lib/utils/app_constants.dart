@@ -4,7 +4,7 @@ class AppConstants {
   static const String APP_NAME = 'FOODIE';
   static const int APP_VERSION = 1;
 
-  static const String BASE_URL = 'http://7738-212-108-136-219.eu.ngrok.io';
+  static const String BASE_URL = 'http://6029-194-27-73-85.eu.ngrok.io';
   // static const String BASE_URL = 'http://127.0.0.1:8000';
   // static const String BASE_URL = 'http://localhost:8000';
   static const String POPULAR_PRODUCT_URI = '/api/v1/products/popular';
