@@ -10,6 +10,8 @@ class PlaceOrderBody {
   late String _longitude;
   late String _contactPersonName;
   late String _contactPersonNumber;
+  late String _orderType;
+  late String _paymentMethod;
 
   PlaceOrderBody({
     required List<CartModel> cart,
@@ -22,6 +24,8 @@ class PlaceOrderBody {
     required String longitude,
     required String contactPersonName,
     required String contactPersonNumber,
+    required String orderType,
+    required String paymentMethod,
   }) {
     _cart = cart;
     _orderAmount = orderAmount;
@@ -32,6 +36,8 @@ class PlaceOrderBody {
     _longitude = longitude;
     _contactPersonName = contactPersonName;
     _contactPersonNumber = contactPersonNumber;
+    _orderType = orderType;
+    _paymentMethod = paymentMethod;
   }
 
   List<CartModel> get cart => _cart!;
@@ -83,6 +89,8 @@ class PlaceOrderBody {
     data['longitude'] = _longitude;
     data['contact_person_name'] = _contactPersonName;
     data['contact_person_number'] = _contactPersonNumber;
+    data['order_type'] = _orderType;
+    data['payment_method'] = _paymentMethod;
     return data;
   }
 }

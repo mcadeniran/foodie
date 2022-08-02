@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/base/custom_app_bar.dart';
 import 'package:foodie/base/custom_loader.dart';
 import 'package:foodie/controllers/auth_controller.dart';
 import 'package:foodie/controllers/cart_controller.dart';
@@ -24,20 +25,7 @@ class AccountPage extends StatelessWidget {
       Get.find<LocationController>().getAddressList();
     }
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.appMainColor,
-        iconTheme: const IconThemeData(
-          color: AppColors.appComplimentColor,
-        ),
-        leading: const BackButton(
-          color: AppColors.appMainTextColor,
-        ),
-        title: const BigText(
-          text: "Profile",
-          size: 24,
-          color: AppColors.appMainTextColor,
-        ),
-      ),
+      appBar: const CustomAppBar(title: "Profile"),
       backgroundColor: AppColors.appMainColor,
       body: GetBuilder<UserController>(
         builder: (userController) {

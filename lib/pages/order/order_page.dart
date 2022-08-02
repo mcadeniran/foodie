@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/base/custom_app_bar.dart';
 import 'package:foodie/controllers/auth_controller.dart';
 import 'package:foodie/pages/order/view_order.dart';
 import 'package:foodie/utils/colors.dart';
@@ -33,20 +34,21 @@ class _OrderPageState extends State<OrderPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.appMainColor,
-        leading: const BackButton(
-          color: AppColors.appMainTextColor,
-        ),
-        iconTheme: const IconThemeData(
-          color: AppColors.appComplimentColor,
-        ),
-        title: const BigText(
-          text: "My Orders",
-          size: 24,
-          color: AppColors.appMainTextColor,
-        ),
-      ),
+      appBar: CustomAppBar(title: "Orders"),
+      // appBar: AppBar(
+      //   backgroundColor: AppColors.appMainColor,
+      //   leading: const BackButton(
+      //     color: AppColors.appMainTextColor,
+      //   ),
+      //   iconTheme: const IconThemeData(
+      //     color: AppColors.appComplimentColor,
+      //   ),
+      //   title: const BigText(
+      //     text: "My Orders",
+      //     size: 24,
+      //     color: AppColors.appMainTextColor,
+      //   ),
+      // ),
       backgroundColor: AppColors.appMainColor,
       body: _isLoggedIn
           ? Column(

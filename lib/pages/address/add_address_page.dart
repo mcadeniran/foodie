@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/base/custom_app_bar.dart';
 import 'package:foodie/controllers/auth_controller.dart';
 import 'package:foodie/controllers/location_controller.dart';
 import 'package:foodie/controllers/user_controller.dart';
@@ -63,20 +64,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.appMainColor,
-        iconTheme: const IconThemeData(
-          color: AppColors.appComplimentColor,
-        ),
-        leading: const BackButton(
-          color: AppColors.appMainTextColor,
-        ),
-        title: const BigText(
-          text: "Address Page",
-          size: 24,
-          color: AppColors.appMainTextColor,
-        ),
-      ),
+      appBar: const CustomAppBar(title: "Address"),
       body: GetBuilder<UserController>(
         builder: (userController) {
           if (userController.userModel != null &&
